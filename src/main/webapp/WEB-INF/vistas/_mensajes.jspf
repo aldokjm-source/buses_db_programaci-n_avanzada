@@ -1,0 +1,17 @@
+<%@ page pageEncoding="UTF-8" %>
+<c:if test="${not empty mensajeExito}">
+    <div class="msg ok" role="status"><c:out value="${mensajeExito}" /></div>
+</c:if>
+<c:if test="${not empty mensajeError}">
+    <div class="msg error" role="alert"><c:out value="${mensajeError}" /></div>
+</c:if>
+<c:if test="${not empty errores}">
+    <div class="msg error" role="alert">
+        <strong>Revise los datos ingresados:</strong>
+        <ul>
+            <c:forEach var="err" items="${errores}">
+                <li><c:out value="${err}" /></li>
+            </c:forEach>
+        </ul>
+    </div>
+</c:if>

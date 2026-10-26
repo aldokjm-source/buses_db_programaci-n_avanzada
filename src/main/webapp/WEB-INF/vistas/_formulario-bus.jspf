@@ -1,0 +1,19 @@
+<%@ page pageEncoding="UTF-8" %>
+<label for="marca">Marca</label>
+<input type="text" id="marca" name="marca" maxlength="100" value="<c:out value='${marca}'/>">
+
+<label for="modelo">Modelo</label>
+<input type="text" id="modelo" name="modelo" maxlength="150" value="<c:out value='${modelo}'/>">
+
+<label for="patente">Patente</label>
+<input type="text" id="patente" name="patente" maxlength="20" value="<c:out value='${patente}'/>">
+
+<label for="idViaje">Viaje</label>
+<select id="idViaje" name="idViaje">
+    <option value="">-- Seleccione un viaje --</option>
+    <c:forEach var="v" items="${viajes}">
+        <option value="${v.id}" ${(v.id += '') eq idViaje ? 'selected' : ''}>
+            <c:out value="${v.nombre}" /> (<c:out value="${v.codigo}" />)
+        </option>
+    </c:forEach>
+</select>
